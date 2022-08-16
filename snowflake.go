@@ -29,7 +29,7 @@ func NewIdGenerator(nodeId int) (*IdGenerator, error) {
 	idGen.maxNode = uint(math.Pow(2, NODE_BITS) - 1)
 	idGen.maxSequence = uint(math.Pow(2, SEQUENCE_BITS) - 1)
 
-	idGen.customEpoch = 1584021185000
+	idGen.customEpoch = 1660653276
 
 	idGen.lastTimestamp = -1
 	idGen.sequence = 0
@@ -42,7 +42,7 @@ func NewIdGenerator(nodeId int) (*IdGenerator, error) {
 }
 
 func (idGen *IdGenerator) getCurrentTimestamp() int64 {
-	return time.Now().Unix()
+	return time.Now().Unix() - 1660653276
 }
 
 func (idGen *IdGenerator) waitTillNextTimestamp(currentTimestamp int64) int64 {
